@@ -87,7 +87,7 @@ if __name__ == '__main__' :
         #model.load_weights(configuration.get_checkpoint_file(), by_name = False)
     #defining optimizer, my experience shows that SGD + cosine decay is a good starting point        
     #recommended learning_rate is 0.1, and decay_steps = total_number_of_steps                        
-    #initial_learning_rate= configuration.get_learning_rate()
+    initial_learning_rate= configuration.get_learning_rate()
     lr_schedule = tf.keras.experimental.CosineDecay(initial_learning_rate = initial_learning_rate,
                                                    decay_steps = configuration.get_decay_steps(),
                                                     alpha = 0.0001)
