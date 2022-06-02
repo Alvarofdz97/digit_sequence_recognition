@@ -92,10 +92,10 @@ if __name__ == '__main__' :
     #                                                decay_steps = configuration.get_decay_steps(),
     #                                                alpha = 0.0001)
 
-    #opt = tf.keras.optimizers.SGD(learning_rate = lr_schedule, momentum = 0.9, nesterov = True)        
+    opt1 = tf.keras.optimizers.SGD(learning_rate = lr_schedule, momentum = 0.9, nesterov = True)        
     opt = tf.keras.optimizers.Adam(learning_rate = configuration.get_learning_rate())
     model.compile(
-         optimizer=opt, 
+         optimizer=opt+opt1, 
         #optimizer=tf.keras.optimizers.Adam(learning_rate = configuration.get_learning_rate()), # 'adam'     
           loss= losses.multiple_crossentropy_loss,
           metrics=['accuracy'])
